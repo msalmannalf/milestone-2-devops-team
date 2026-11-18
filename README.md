@@ -11,7 +11,6 @@ Mata Kuliah Praktikum Sistem Operasi - Sekolah Vokasi UNS
 | Salman   | 21116152610046 | Repo, Docs & Testing |
 
 ## Arsitektur
-
 Proyek ini menggunakan arsitektur multi-tier:
 
 1. Presentation Layer: Nginx sebagai reverse proxy.
@@ -19,6 +18,7 @@ Proyek ini menggunakan arsitektur multi-tier:
 3. Service Management: Systemd untuk mengelola aplikasi.
 4. Automation Layer: Bash script untuk instalasi dan deployment.
 
+```text
 [ Internet / Client ]
         | TCP 80
         v
@@ -29,7 +29,7 @@ Proyek ini menggunakan arsitektur multi-tier:
         | TCP 127.0.0.1:3306  (loopback)
         v
 [ Tier 3: MariaDB ]   (bind-address 127.0.0.1)
-
+```
 Prinsip: isolasi layanan, least privilege (user `webapp` tanpa shell), idempotensi.
 
 
