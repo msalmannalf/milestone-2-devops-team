@@ -6,10 +6,10 @@ Mata Kuliah Praktikum Sistem Operasi - Sekolah Vokasi UNS
 | Nama | NIM | Peran |
 |---|---|---|
 
-| ... | ... | Master Installer |
-| ... | ... | Systemd & Backend |
-| ... | ... | Nginx & Database |
-| ... | ... | Repo, Docs & Testing |
+| Maharani | ... | Master Installer |
+| Haidar   | ... | Systemd & Backend |
+| Sabrina  | ... | Nginx & Database |
+| Salman   | ... | Repo, Docs & Testing |
 
 ## Arsitektur
 
