@@ -3,13 +3,12 @@
 Mata Kuliah Praktikum Sistem Operasi - Sekolah Vokasi UNS
 
 ## Anggota Tim
-| Nama | NIM | Peran |
-|---|---|---|
-
-| Maharani | ... | Master Installer |
-| Haidar   | ... | Systemd & Backend |
-| Sabrina  | ... | Nginx & Database |
-| Salman   | ... | Repo, Docs & Testing |
+| Nama     | NIM            | Peran                |
+|----------|----------------|----------------------|
+| Maharani | 21116152610041 | Master Installer     |
+| Haidar   | 21116152610036 | Systemd & Backend    |
+| Sabrina  | 21116152610052 | Nginx & Database     |
+| Salman   | 21116152610046 | Repo, Docs & Testing |
 
 ## Arsitektur
 
