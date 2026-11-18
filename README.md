@@ -19,6 +19,20 @@ Proyek ini menggunakan arsitektur multi-tier:
 3. Service Management: Systemd untuk mengelola aplikasi.
 4. Automation Layer: Bash script untuk instalasi dan deployment.
 
+[ Internet / Client ]
+        | TCP 80
+        v
+[ Tier 1: Nginx Reverse Proxy ]   (listen 0.0.0.0:80)
+        | HTTP 127.0.0.1:8000  (loopback)
+        v
+[ Tier 2: Backend App - webapp.service ]   (user: webapp, sandboxed)
+        | TCP 127.0.0.1:3306  (loopback)
+        v
+[ Tier 3: MariaDB ]   (bind-address 127.0.0.1)
+
+Prinsip: isolasi layanan, least privilege (user `webapp` tanpa shell), idempotensi.
+
+
 ## Teknologi yang Digunakan
 
 - Ubuntu Linux
@@ -37,19 +51,6 @@ sudo bash deploy.sh
 
 ```text
 
-
-[ Internet / Client ]
-        | TCP 80
-        v
-[ Tier 1: Nginx Reverse Proxy ]   (listen 0.0.0.0:80)
-        | HTTP 127.0.0.1:8000  (loopback)
-        v
-[ Tier 2: Backend App - webapp.service ]   (user: webapp, sandboxed)
-        | TCP 127.0.0.1:3306  (loopback)
-        v
-[ Tier 3: MariaDB ]   (bind-address 127.0.0.1)
-
-Prinsip: isolasi layanan, least privilege (user `webapp` tanpa shell), idempotensi.
 
 ## Quick Start
 ```bash
@@ -78,4 +79,4 @@ project-root/
 │   ├── 05_deploy_app.sh
 │   └── 06_configure_nginx.sh
 └── tests/health_check.sh
-# Struktur Repo
+
