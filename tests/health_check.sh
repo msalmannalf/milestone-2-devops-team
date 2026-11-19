@@ -18,14 +18,11 @@ app_is_webapp() {
 local pid; pid=$(systemctl show -p MainPID --value webapp.service)
 [ "$(ps -o user= -p "$pid" | tr -d ' ')" = "webapp" ]
 }
-app_not_public() { ! ss -tln | awk '{print $4}' | grep -Eq 
-'^(0\.0\.0\.0|\*):8000$'; }
-check "webapp.service aktif"          systemctl is-active --quiet
-webapp.service
+app_not_public() { ! ss -tln | awk '{print $4}' | grep -Eq '^(0\.0\.0\.0|\*):8000$'; }
+check "webapp.service aktif"          systemctl is-active --quiet webapp.service
 check "nginx aktif"                   systemctl is-active --quiet nginx
 check "mariadb aktif"                 systemctl is-active --quiet mariadb
-check "webapp.service enabled"        systemctl is-enabled --quiet
-webapp.service
+check "webapp.service enabled"        systemctl is-enabled --quiet webapp.service
 check "App berjalan sebagai webapp"   app_is_webapp
 check "HTTP 200 via nginx (port 80)"  curl -fsS http://127.0.0.1/health
 check "Backend 8000 hanya loopback"   app_not_public
