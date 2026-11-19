@@ -46,15 +46,12 @@ Prinsip: isolasi layanan, least privilege (user `webapp` tanpa shell), idempoten
 
 ## Cara Menjalankan
 
-```bash
 sudo bash deploy.sh
 
 ```text
-
-
 ## Quick Start
 ```bash
-git clone <URL-REPO> project-root && cd project-root
+git clone https://github.com/msalmannalf/milestone-2-devops-team.git
 cp env.example .env
 nano .env                 # isi DB_PASS
 sudo ./deploy.sh          # aman dijalankan berulang
@@ -79,4 +76,4 @@ project-root/
 │   ├── 05_deploy_app.sh
 │   └── 06_configure_nginx.sh
 └── tests/health_check.sh
-
+'''
