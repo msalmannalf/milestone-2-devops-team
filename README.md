@@ -50,7 +50,6 @@ sudo bash deploy.sh
 
 ```text
 ## Quick Start
-```bash
 git clone https://github.com/msalmannalf/milestone-2-devops-team.git
 cp env.example .env
 nano .env                 # isi DB_PASS
