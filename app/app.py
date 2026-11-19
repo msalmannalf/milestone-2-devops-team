@@ -11,6 +11,7 @@ logging.basicConfig(
     format="%(asctime)s %(message)s",
 )
 
+
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/health":
@@ -21,7 +22,7 @@ class Handler(BaseHTTPRequestHandler):
                 "client_ip": self.headers.get("X-Real-IP", self.client_address[0]),
                 "proto": self.headers.get("X-Forwarded-Proto", "http"),
             }
-data = json.dumps(body).encode()
+        data = json.dumps(body).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(data)))
@@ -32,5 +33,7 @@ data = json.dumps(body).encode()
     def log_message(self, fmt, *args):
         pass
 
+
 if __name__ == "__main__":
     ThreadingHTTPServer(("127.0.0.1", PORT), Handler).serve_forever()
+    
